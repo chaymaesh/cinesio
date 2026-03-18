@@ -8,7 +8,7 @@
     
 </head>
 <body>
-
+<header>
     <nav class="navbar">
 
         <!-- logo-->
@@ -26,5 +26,5 @@
         
 
     </nav>
-
+</header>
 <main>
