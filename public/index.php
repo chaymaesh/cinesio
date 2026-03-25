@@ -1,7 +1,14 @@
 <?php 
-require_once __DIR__.'/../src/data/data.php' ;
+//require_once __DIR__.'/../src/data/data.php' ; 
 include __DIR__.'/../src/includes/header.php';
-require_once __DIR__.'/../src/lib/fonctions.php' ?>
+require_once __DIR__.'/../src/lib/fonctions.php';
+require_once __DIR__ .'/../src/repositories/filmRepository.php';
+$films = findAllFilms();
+
+?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +17,6 @@ require_once __DIR__.'/../src/lib/fonctions.php' ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../public/assets/css/style.css">
-
-
 
 
 <div class="titre">
@@ -25,14 +30,16 @@ require_once __DIR__.'/../src/lib/fonctions.php' ?>
 
 
     <?php foreach ($films as $film):?>
-    <div class="card">
 
-        <span class="badge"><?= strtoupper(substr($film["pays"], 0, 3,) ) ?></span>
+    <div class="card">
+        
+
+        <span class="badge"><?= strtoupper(substr($film["initiale"], 0, 3,) ) ?></span>
         <img src="<?= $film["image"] ?>" alt="film">
 
             <div class="card-content">
                 <h3> <?= $film["titre"] ?></h3>
-                <p><?= $film["genre"] ?> - <?= convertirMinute($film["duree"])  ?>min</p>
+                <p><?= $film["nom_genre"] ?> - <?= convertirMinute($film["duree"])  ?>min</p>
 
                   <?php if (strlen($film["synopsis"])>50): ?>
                          <p> <?= substr($film["synopsis"], 0, 70) ?>...</p> 
@@ -43,7 +50,8 @@ require_once __DIR__.'/../src/lib/fonctions.php' ?>
             </div>
 
             <div class="card-action">
-                <a href="#" class="btn">Détails</a>
+                
+                <a href="detail-film.php?id=<?= $film['id'] ?>" class="btn">Détail</a>
             </div>
 
     </div>
