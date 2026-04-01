@@ -46,13 +46,23 @@ if ($id === '') {
     <title>Document</title>
     <link rel="stylesheet" href="../public/assets/css/style.css">
     
-<a href="index.php?id=<?= $film['id'] ?>" class="retour"> <i class="bi bi-arrow-left"></i>Retour au catalogue</a>
+<a href="index.php" class="retour"> <i class="bi bi-arrow-left"></i>Retour au catalogue</a>
 
       <?php if ($messageErreur !== "") : ?>
-        <div class="erreur">
-            <?= $messageErreur ?>
+        <div class="introuvable">
+            
+            <h2>Film introuvable</h2>
+            <p>Désolé, le film que vous rechercher est introuvable ou n'est plus disponible dans notre catalogue</p>
+             <div class="card-action">
+                
+                <a href="index.php" class="btn-introuv">Explorer le catalogue</a>
         </div>
-    <?php else : ?>
+        </div>
+
+        
+
+    <?php else:?>
+    
         <div class=" fiche-film">
            
             
@@ -60,17 +70,18 @@ if ($id === '') {
 
             <div class="contenue">
                     <div class="date-genre-pays">
-                        <p><?= $produitRecherche["initiale"] ?></p>
+                        <p class="ini"><?= $produitRecherche["initiale"] ?></p>
                         <p><?= $produitRecherche["nom_genre"] ?></p>
                         <p><?= substr($produitRecherche["date_sortie"], 0, 4)?></p>
                     </div>
 
                
-            <h2> <?= htmlspecialchars($produitRecherche['titre'])  ?> </h2>
-            <p><i class="bi bi-clock"></i><?= convertirMinute($produitRecherche['duree']) ?></p>
-            <p><?= htmlspecialchars($produitRecherche['synopsis']) ?></p> 
+            <h2 class="titre"> <?= htmlspecialchars($produitRecherche['titre'])  ?> </h2>
+            <p class="duree"><i class="bi bi-clock"></i><?= convertirMinute($produitRecherche['duree']) ?></p>
+            <H3 class="synopsis-titre">Synopsis</H3>
+            <p class="synopsis"><?= htmlspecialchars($produitRecherche['synopsis']) ?></p> 
 
-                <div class="card-action">
+                <div class="btn-wrapper">
                     <a href="#" class="btn-catalogue">On verra plus tard...</a>
                 </div>
             </div>

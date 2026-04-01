@@ -39,7 +39,7 @@ $films = findAllFilms();
 
             <div class="card-content">
                 <h3> <?= $film["titre"] ?></h3>
-                <p><?= $film["nom_genre"] ?> - <?= convertirMinute($film["duree"])  ?>min</p>
+                <p><?= $film["nom_genre"] ?> - <?= convertirMinute($film["duree"])  ?></p>
 
                   <?php if (strlen($film["synopsis"])>50): ?>
                          <p> <?= substr($film["synopsis"], 0, 70) ?>...</p> 
