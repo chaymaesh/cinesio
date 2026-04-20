@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    
+    <link rel="stylesheet" href="../public/assets/css/style.css">
+
 </head>
 <body>
 <header>
@@ -15,12 +16,14 @@
 
         <p class="logo "><i class="bi bi-film"></i> Ciné<span>SIO</span></p>
 
+        <?php $page = basename($_SERVER['PHP_SELF']); ?>
         
         <!-- menu-->
 
         <ul class="nav-links">
-            <li><a href="index.php" class="link active">Accueil</a></li>
-            <li><a href="#" class="link">Catalogue</a></li>        
+            <li><a href="index.php" class="link <?= ($page == 'index.php') ? 'active' : '' ?>">Accueil</a></li>
+            <li><a href="detail-film.php" class="link <?= ($page == 'detail-film.php') ? 'active' : '' ?>">Catalogue</a></li>   
+            <li><a href="ajouter-film.php"class="link <?= ($page == 'ajouter-film.php') ? 'active' : '' ?>">Ajouter un film</a></li>     
             <li><a href="#"class="link">Contact</a></li>
         </ul>
         

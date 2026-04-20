@@ -51,3 +51,50 @@ if ($films=== false){
 
 return $films;
 }
+
+
+function getGenre() : array {
+$connexion = getConnexion(); 
+
+$requeteSQL = "SELECT * FROM genre"; 
+$requete = $connexion ->prepare($requeteSQL);
+
+$requete ->execute(); 
+$requete -> setFetchMode(PDO::FETCH_ASSOC); 
+
+$genre = $requete->fetchAll(); 
+return $genre;
+
+}
+
+function getPays() : array {
+    $connexion = getConnexion();
+
+    $requeteSQL = "SELECT * FROM pays";
+    $requete = $connexion ->prepare($requeteSQL);
+    $requete ->execute();
+
+//récuperation des enrgistrements
+    $requete -> setFetchMode(PDO::FETCH_ASSOC);
+    $pays = $requete->fetchAll();
+    return $pays;
+
+}
+
+function insertFilm(array $filmData): bool {
+        $connexion = getConnexion();
+
+    $requeteSQL = "INSERT INTO film (titre, date_sortie, duree, synopsis, image, id_genre, id_pays)
+VALUES (:titre, :date_sortie , :duree, :synopsis, :image, :id_genre, :id_pays)";
+    $requete = $connexion ->prepare($requeteSQL);
+    $requete->bindValue("titre", $filmData["titre"]);
+    $requete->bindValue("date_sortie", $filmData["date_sortie"]);
+    $requete->bindValue("duree", $filmData["duree"]);
+    $requete->bindValue("synopsis", $filmData["synopsis"]);
+    $requete->bindValue("image", $filmData["image"]);
+    $requete->bindValue("id_genre", $filmData["genre"]);
+    $requete->bindValue("id_pays", $filmData["pays"]);
+
+    return $requete ->execute();
+    
+}
