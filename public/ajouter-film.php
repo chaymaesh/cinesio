@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
         $erreurs['synopsis']= "le synopsis est obligatoire";
 
     } elseif (strlen($synopsis) < 10) {
-        $erreurs['titre']= "le titre doit comporter au moins 10 caractères";
+        $erreurs['synopsis']= "le synopsis doit comporter au moins 10 caractères";
 
     }
 

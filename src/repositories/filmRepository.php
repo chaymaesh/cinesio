@@ -98,3 +98,5 @@ VALUES (:titre, :date_sortie , :duree, :synopsis, :image, :id_genre, :id_pays)";
     return $requete ->execute();
     
 }
+
+
