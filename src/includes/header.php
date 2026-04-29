@@ -26,14 +26,27 @@
         
         <!-- menu-->
 
+<?php if (isset($_SESSION['utilisateur'])) :?>
         <ul class="nav-links">
             <li><a href="index.php" class="link <?= ($page == 'index.php') ? 'active' : '' ?>">Accueil</a></li>
-            <li><a href="inscription.php" class="link <?= ($page == 'inscription.php') ? 'active' : '' ?>">Inscription</a></li>
-            <li><a href="connexion.php" class="link <?= ($page == 'connexion.php') ? 'active' : '' ?>">Connexion</a></li>   
             <li><a href="ajouter-film.php"class="link <?= ($page == 'ajouter-film.php') ? 'active' : '' ?>">Ajouter un film</a></li>     
+            <li class="pseudo"><i class="bi bi-person"></i><?= $_SESSION['utilisateur']['pseudo'] ?> </li>
+            <li class="logout"><a href="deconnexion.php"class="link"><i class="bi bi-box-arrow-right"></i></a></li>
             <li><a href="#"class="link">Contact</a></li>
         </ul>
         
+<?php else : ?>
+
+            <ul class="nav-links">
+            <li><a href="index.php" class="link <?= ($page == 'index.php') ? 'active' : '' ?>">Accueil</a></li>
+            <li><a href="inscription.php" class="link <?= ($page == 'inscription.php') ? 'active' : '' ?>">Inscription</a></li>
+            <li><a href="connexion.php" class="link <?= ($page == 'connexion.php') ? 'active' : '' ?>">Connexion</a></li>   
+            <li><a href="#"class="link">Contact</a></li>
+        </ul>
+    
+<?php endif; ?>
+
+
 
     </nav>
 </header>

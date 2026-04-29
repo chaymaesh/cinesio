@@ -18,9 +18,17 @@ if ($utilisateurs == null) {
     $erreurs['email']= "cet utilisateur n'existe pas";
 } elseif (!password_verify($motDePasse, $utilisateurs['mot_de_passe'] )) {
     $erreurs['mot_de_passe']= "email ou mot de passe incorrect";
+} else {
+$_SESSION['utilisateur'] = [
+    'id' => $utilisateurs['id'],
+    'pseudo' => $utilisateurs['pseudo']
+];
+
+
+header('location: index.php');
+exit; 
 
 }
-
 }
 ?>
 
@@ -35,7 +43,7 @@ if ($utilisateurs == null) {
 
     <div class="EM">
       <label for="email">Adresse Email </span></label>
-      <input type="text" id="email" name="email" placeholder="Ex: votre@gmail.com" />
+      <input type="text" id="email" name="email" placeholder="Ex: votre@gmail.com" value="<?= htmlspecialchars($email) ?>"/>
 
        <?php if (isset($erreurs['email'])) : ?>
                         <div class="erreur-message"> <?=  $erreurs["email"] ?></div>
