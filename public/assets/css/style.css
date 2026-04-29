@@ -98,6 +98,17 @@ main {
 
 }
 
+.pseudo span  {
+    padding-left : 3px;
+    border-radius: 5px;
+    width: 10px;
+}
+
+.pseudo {
+    background-color: #dddddd;
+
+}
+
 /*page*/
 
 

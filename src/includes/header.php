@@ -30,7 +30,7 @@
         <ul class="nav-links">
             <li><a href="index.php" class="link <?= ($page == 'index.php') ? 'active' : '' ?>">Accueil</a></li>
             <li><a href="ajouter-film.php"class="link <?= ($page == 'ajouter-film.php') ? 'active' : '' ?>">Ajouter un film</a></li>     
-            <li class="pseudo"><i class="bi bi-person"></i><?= $_SESSION['utilisateur']['pseudo'] ?> </li>
+            <li class="pseudo"><i class="bi bi-person"></i><span><?= htmlspecialchars($_SESSION['utilisateur']['pseudo']) ?></span> </li>
             <li class="logout"><a href="deconnexion.php"class="link"><i class="bi bi-box-arrow-right"></i></a></li>
             <li><a href="#"class="link">Contact</a></li>
         </ul>
