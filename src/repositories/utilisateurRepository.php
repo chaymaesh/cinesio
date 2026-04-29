@@ -2,7 +2,7 @@
  
  require_once __DIR__ ."/../database/connection.php";
 
- function findUtilisateurByEmail(string $email) : string {
+ function findUtilisateurByEmail(string $email) : ?string {
     //Connection à la bdd
     $connexion = getConnexion();
 
@@ -17,12 +17,12 @@ WHERE email = :email";
 
 //récuperation des enrgistrements
     $requete -> setFetchMode(PDO::FETCH_ASSOC);
-    $email = $requete->fetch();
+    $email = $requete->fetchColumn();
 
-    return $email;
+    return $email ?: null;
  }
 
- function findUtilisateurByPseudo(string $pseudo) : string {
+ function findUtilisateurByPseudo(string $pseudo) : ?string {
     //Connection à la bdd
     $connexion = getConnexion();
 
@@ -37,9 +37,9 @@ WHERE pseudo = :pseudo";
 
 //récuperation des enrgistrements
     $requete -> setFetchMode(PDO::FETCH_ASSOC);
-    $pseudo = $requete->fetch();
+    $pseudo = $requete->fetchColumn();
 
-    return $pseudo;
+    return $pseudo ?: null;
  }
 
  

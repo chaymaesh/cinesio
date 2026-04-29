@@ -118,9 +118,9 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
 <div class="page-formulaire"> 
 <h2>Ajouter un nouveau film</h2>
 <h3>Veuillez renseigner les informations ci-dessous pour ajouter un film au catalogue CineSIO</h3>
-<!--<?php if ($succes) : ?>-->
+<?php if ($succes) : ?>
             <div class="succes-message"> Le film a été ajouter avec succès !</div>
-        <!--<?php endif ; ?>-->
+        <?php endif ; ?>
 </div>
 
 
