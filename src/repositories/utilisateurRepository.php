@@ -2,12 +2,12 @@
  
  require_once __DIR__ ."/../database/connection.php";
 
- function findUtilisateurByEmail(string $email) : ?string {
+ function findUtilisateurByEmail(string $email) : ?array {
     //Connection à la bdd
     $connexion = getConnexion();
 
 //execution de la requete
-    $requeteSQL = "SELECT email
+    $requeteSQL = "SELECT *
 FROM utilisateur
 WHERE email = :email";
     $requete = $connexion ->prepare($requeteSQL);
@@ -17,7 +17,7 @@ WHERE email = :email";
 
 //récuperation des enrgistrements
     $requete -> setFetchMode(PDO::FETCH_ASSOC);
-    $email = $requete->fetchColumn();
+    $email = $requete->fetch();
 
     return $email ?: null;
  }

@@ -29,7 +29,7 @@
         <ul class="nav-links">
             <li><a href="index.php" class="link <?= ($page == 'index.php') ? 'active' : '' ?>">Accueil</a></li>
             <li><a href="inscription.php" class="link <?= ($page == 'inscription.php') ? 'active' : '' ?>">Inscription</a></li>
-            <li><a href="inscription.php" class="link <?= ($page == 'connexion.php') ? 'active' : '' ?>">Connexion</a></li>   
+            <li><a href="connexion.php" class="link <?= ($page == 'connexion.php') ? 'active' : '' ?>">Connexion</a></li>   
             <li><a href="ajouter-film.php"class="link <?= ($page == 'ajouter-film.php') ? 'active' : '' ?>">Ajouter un film</a></li>     
             <li><a href="#"class="link">Contact</a></li>
         </ul>

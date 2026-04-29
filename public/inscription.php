@@ -143,7 +143,7 @@ $confirmation = '';
             </button>
     </div>
 
-    <a href="connexion.php" class="connexion"> Déjà un compte ? Connectez-vous</a>
+    <a href="connexion.php" class="connexion-btn"> Déjà un compte ? Connectez-vous</a>
 
     </form>
 
