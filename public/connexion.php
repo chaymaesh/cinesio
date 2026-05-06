@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
 $utilisateurs = findUtilisateurByEmail($email);
 
 if ($utilisateurs == null) {
-    $erreurs['email']= "cet utilisateur n'existe pas";
+    $erreurs['email']= "email ou mot de passe incorrect";
 } elseif (!password_verify($motDePasse, $utilisateurs['mot_de_passe'] )) {
     $erreurs['mot_de_passe']= "email ou mot de passe incorrect";
 } else {
@@ -40,23 +40,23 @@ exit;
     <div class="connexion">
 
         <form action="" method="POST" novalidate>
-
+<?php if (isset($erreurs['mot_de_passe'])) : ?>
+                        <div class="erreur-message"> <?=  $erreurs["mot_de_passe"] ?></div>
+        <?php endif; ?>
+<?php if (isset($erreurs['email'])) : ?>
+                        <div class="erreur-message"> <?=  $erreurs["email"] ?></div>
+        <?php endif; ?>
     <div class="EM">
       <label for="email">Adresse Email </span></label>
       <input type="text" id="email" name="email" placeholder="Ex: votre@gmail.com" value="<?= htmlspecialchars($email) ?>"/>
 
-       <?php if (isset($erreurs['email'])) : ?>
-                        <div class="erreur-message"> <?=  $erreurs["email"] ?></div>
-         <?php endif; ?>
 
     </div>
 
     <div class="EM">
         <label for="mot_de_passe">Mot de passe </span></label>
         <input type="password" id="mot_de_passe" name="mot_de_passe" />
-        <?php if (isset($erreurs['mot_de_passe'])) : ?>
-                        <div class="erreur-message"> <?=  $erreurs["mot_de_passe"] ?></div>
-        <?php endif; ?>
+        
     </div>
 
         <div  class="AP">

@@ -104,9 +104,20 @@ main {
     width: 10px;
 }
 
-.pseudo {
-    background-color: #dddddd;
+.pseudo {  
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ 
+    font-weight: bold;
+    background-color: #e5e2e2;
+    border-radius: 5px;
+    width: 75px;
+    height: 20PX;
+    text-align: center;
+    align-items: center;
+}
 
+.bi-box-arrow-right {
+    color: rgb(198, 11, 11);
 }
 
 /*page*/
